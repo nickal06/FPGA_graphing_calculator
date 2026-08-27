@@ -168,4 +168,6 @@ This project demonstrates:
 
 ## Authors
 
-Developed as an FPGA hardware/software integration project using Logisim Evolution, VHDL, Vivado, and Python.
+Nicholas Alqarra
+Ben Wang - [GitHub](https://github.com/bebmoment)
+Lucas De La Cruz - [GitHub](https://github.com/ludeza6)
