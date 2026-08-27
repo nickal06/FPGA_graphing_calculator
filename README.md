@@ -120,7 +120,7 @@ FPGA-Function-Plotter/
 │   └── zybo_z7.xdc
 │
 └── README.md
-
+```
 ---
 
 ## Workflow
