@@ -84,17 +84,17 @@ After decoding the packet:
 
 ### Cartesian Mode
 
-[
+$$
 y = Ax^2 + Bx + C
-]
+$$
 
 The graph is displayed using Matplotlib over a configurable x-range.
 
 ### Polar Mode
 
-[
+$$
 r = A\theta^2 + B\theta + C
-]
+$$
 
 The graph is displayed on a polar axis.
 
@@ -110,8 +110,7 @@ FPGA-Function-Plotter/
 │
 ├── VHDL/
 │   ├── main.vhd
-│   ├── logisimTopLevelEntity.vhd
-│   ├── logisimTopLevelShell.vhd
+│   ├── calculator_fsm.vhd
 │   └── uart_tx.vhd
 │
 ├── Python/
@@ -121,18 +120,23 @@ FPGA-Function-Plotter/
 │   └── zybo_z7.xdc
 │
 └── README.md
-```
 
 ---
 
 ## Workflow
 
-1. The user enters the coefficients **A**, **B**, and **C** and selects either Cartesian or polar mode on the FPGA.
+1. The user selects Cartesian or polar mode, then sequentially latches the 4-bit coefficients A, B, and C using the on-board switches and pushbuttons.
+
 2. The FPGA packs the values into a 16-bit UART packet.
+
 3. The UART transmitter sends the packet over USB.
+
 4. Python receives the packet using PySerial.
+
 5. The packet is decoded into the original coefficient values.
+
 6. NumPy generates the function values.
+
 7. Matplotlib displays the resulting graph.
 
 ---
