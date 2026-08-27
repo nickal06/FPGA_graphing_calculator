@@ -4,7 +4,8 @@ import serial
 import sys
 import time
 
-ser = serial.Serial("COM3", 115200)
+PORT = "COM4"
+BAUD = 115200
 
 def signed4(x):
     if x >= 8:
@@ -13,13 +14,13 @@ def signed4(x):
 
 try:
     ser = serial.Serial(PORT, BAUD, timeout=0.1)
-    time.sleep = 0.5
+    time.sleep(0.5)
     ser.reset_input_buffer()
-except Excetion as e:
+except Exception as e:
     sys.exit(1)
 
 plt.ion()
-fig = plt.figure(figsize(7, 6))
+fig = plt.figure(figsize = (7, 6))
 
 try:
     while True:
@@ -76,11 +77,11 @@ try:
 
             fig.canvas.draw()
 
-    plt.pause(0.05)
+        plt.pause(0.05)
 
-    except KeyboardInterrupt:
-        print("\nExiting plotter...")
-    finally:
-        ser.close()
-        plt.close("all")
+except KeyboardInterrupt:
+    print("\nExiting plotter...")
+finally:
+    ser.close()
+    plt.close("all")
 
